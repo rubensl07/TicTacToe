@@ -1,0 +1,92 @@
+:root{
+    --background: gray;
+    --casas: black
+
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.tabuleiro{
+    background-color: var(--background);
+    background-color: black;
+    height: 500px;
+    width: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+.casa{
+    background-color: var(--casas);
+    background-color: pink;
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.casa1{
+    margin-left: 0;
+    margin-top: 0;
+}
+.casa2{
+    margin-top: 0;
+}
+.casa3{
+    margin-right: 0;
+    margin-top: 0;
+}
+.casa4{
+    margin-left: 0;
+}
+.casa6{
+    margin-right: 0;
+}
+.casa7{
+    margin-left: 0;
+    margin-bottom: 0;
+}
+.casa8{
+    margin-bottom: 0;
+}
+.casa9{
+    margin-right: 0;
+    margin-bottom: 0;
+}
+.in{
+    opacity: 0;
+}
+.circulo{
+    background-image: url(./icones/circulo.png);
+    height: 90%;
+    width: 90%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 1;
+    /* transition: 1s; */
+}
+.xis{
+    background-image: url(./icones/xis.png);
+    height: 90%;
+    width: 90%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 1;
+    /* transition: 1s; */
+}
+.verde{
+    background-color: green;
+    /* transition: 1s; */
+}
+.vermelho{
+    background-color: red;
+}
