@@ -2,7 +2,9 @@
     --background: gray;
     --casas: rgb(36, 36, 36);
     --tabuleiro: var(--background);
-    --tempoTransicao:1s;
+    --transicaoCurta:0.5s;
+    --transicaoMedia:1s;
+    --transicaoLonga:2s;
 }
 *{
     padding: 0;
@@ -16,6 +18,33 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+.lado{
+    background-color: rgba(59, 59, 59, 0.473);
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.esquerdo{
+    margin-right: 8%;
+}
+.direito{
+    margin-left: 8%;
+}
+.avermelharPlacar{
+    background-color: rgba(255, 0, 0, 0.500);
+    transition: var(--transicaoMedia);
+}
+.azularPlacar{
+    background-color: rgba(0, 0, 255, 0.500);
+    transition: var(--transicaoMedia);
+}
+.placar{
+    font-size: 500%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 .centro{
     display: flex;
@@ -70,15 +99,7 @@ body{
 }
 .selecionado{
     background-color: black;
-    transition: var(--tempoTransicao);
-}
-.azul{
-    background-color: rgb(43, 43, 255);
-    transition: 0.5s;
-}
-.vermelho{
-    background-color: rgb(255, 43, 43);
-    transition: 0.5s;
+    transition: var(--transicaoLonga);
 }
 .botoes{
     position: absolute;
@@ -105,41 +126,25 @@ body{
     width: 40%;
     background-color: rgb(255, 255, 0);
     font-family: 'Courier New', Courier, monospace;
+    /* cursor: pointer; */
 }
-.lado{
-    background-color: rgba(59, 59, 59, 0.473);
-    height: 100%;
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.placar{
-    font-size: 500%;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-.esquerdo{
-    margin-right: 8%;
-}
-.direito{
-    margin-left: 8%;
-}
-.azularPlacar{
-    background-color: rgba(0, 0, 255, 0.500);
-    transition: var(--tempoTransicao);
-}
-.avermelharPlacar{
-    background-color: rgba(255, 0, 0, 0.500);
-    transition: var(--tempoTransicao);
-}
-#botao{
-    cursor: pointer;
-}
+
+
+
+
+
 .yellow{
     color:yellow;
-    transition: var(--tempoTransicao);
+    transition: var(--transicaoMedia);
 }
 .white{
     color:aliceblue;
+}
+.azul{
+    background-color: rgb(43, 43, 255);
+    transition: var(--transicaoCurta);
+}
+.vermelho{
+    background-color: rgb(255, 43, 43);
+    transition: var(--transicaoCurta);
 }
