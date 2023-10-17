@@ -58,7 +58,7 @@ function jogar(casaJogada) {
                 turn = 1
                 interior[casaJogada].classList.add('circulo')
             }
-        casa[casaJogada].classList.add('verde')
+        casa[casaJogada].classList.add('selecionado')
     }
     ValidarVitoria()
 }
