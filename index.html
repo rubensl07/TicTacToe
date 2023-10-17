@@ -11,23 +11,36 @@
 </head>
 
 <body>
-    <div class="pontuacao vermelho" id="pontuacao">
-        <img src="./icones/xisBranco.png" class="icone" height="70%" id="icone1">
-        <p id="vez">vez do jogador 1</p>
-        <img src="./icones/xisBranco.png" class="icone" height="70%" id="icone2">
+    <div class="lado esquerdo" id="esquerdo">
+        <p class="placar" id="placarX">0</p>
+        <img src="./icones/xis.png" height="20%">
     </div>
-    <div class="tabuleiro" id="tabuleiro">
-        <div class="casa" id="c1"></div>
-        <div class="casa" id="c2"></div>
-        <div class="casa" id="c3"></div>
-        <div class="casa" id="c4"></div>
-        <div class="casa" id="c5"></div>
-        <div class="casa" id="c6"></div>
-        <div class="casa" id="c7"></div>
-        <div class="casa" id="c8"></div>
-        <div class="casa" id="c9"></div>
+    <div class="centro">
+        <div class="pontuacao vermelho" id="pontuacao">
+            <img src="" class="icone" height="70%" id="icone1">
+            <p id="vez"></p>
+            <img src="" class="icone" height="70%" id="icone2">
+        </div>
+        <div class="tabuleiro" id="tabuleiro">
+            <div class="casa" id="c1"></div>
+            <div class="casa" id="c2"></div>
+            <div class="casa" id="c3"></div>
+            <div class="casa" id="c4"></div>
+            <div class="casa" id="c5"></div>
+            <div class="casa" id="c6"></div>
+            <div class="casa" id="c7"></div>
+            <div class="casa" id="c8"></div>
+            <div class="casa" id="c9"></div>
+        </div>
+        <div class="botoes">
+            <button id="reset">Resetar</button>
+            <button id="ur" class="ur">UltraReset</button>
+        </div>
     </div>
-    <button onclick="window.location.reload()">Resetar</button>
+    <div class="lado direito" id="direito">
+        <p class="placar" id="placarO">0</p>
+        <img src="./icones/circulo.png" height="20%">
+    </div>
 </body>
 
 </html>
