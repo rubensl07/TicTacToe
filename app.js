@@ -1,4 +1,12 @@
 'use strict'
+function zerarPlacares(){
+    localStorage.setItem("pontuacaoX", 0)
+    localStorage.setItem("pontuacaoO", 0)
+}
+if((!localStorage.getItem("pontuacaoX"))||(!localStorage.getItem("pontuacaoO"))){
+    zerarPlacares()
+}
+
 //Inicializando as variáveis
 const casa = [9];
 const p = [9];
@@ -27,7 +35,9 @@ const vez = document.getElementById('vez')
 const icone1 = document.getElementById('icone1')
 const icone2 = document.getElementById('icone2')
 let placarX = document.getElementById('placarX')
+placarX.textContent = localStorage.getItem("pontuacaoX")
 let placarO = document.getElementById('placarO')
+placarO.textContent = localStorage.getItem("pontuacaoO")
 const esquerdo = document.getElementById('esquerdo')
 const direito = document.getElementById('direito')
 const botaoReset = document.getElementById('reset')
@@ -49,6 +59,7 @@ botaoReset.addEventListener('click', pressionarBotao)
 ultraReset.addEventListener('click', function () {
     const confirmacao = window.confirm("Pressionar esse botão apagará os placares atuais e resetará o jogo.\nEstá certo que deseja continuar?");
     if (confirmacao) {
+        zerarPlacares()
         location.reload()
     }
 });
@@ -106,7 +117,9 @@ function pressionarBotao() {
 function ValidarVitoria() {
     if ((p[0] == 1 && p[1] == 1 && p[2] == 1) || (p[3] == 1 && p[4] == 1 && p[5] == 1) || (p[6] == 1 && p[7] == 1 && p[8] == 1) || (p[0] == 1 && p[3] == 1 && p[6] == 1) || (p[1] == 1 && p[4] == 1 && p[7] == 1) || (p[2] == 1 && p[5] == 1 && p[8] == 1) || (p[0] == 1 && p[4] == 1 && p[8] == 1) || (p[2] == 1 && p[4] == 1 && p[6] == 1)) {
         vitoria = 1
+        let vitoriasX = localStorage.getItem("pontuacaoX")
         vitoriasX++
+        localStorage.setItem("pontuacaoX",vitoriasX)
         placarX.textContent = vitoriasX.toString()
         placarX.classList.remove('white')
         placarX.classList.add('yellow')
@@ -124,7 +137,9 @@ function ValidarVitoria() {
     } else
         if ((p[0] == 2 && p[1] == 2 && p[2] == 2) || (p[3] == 2 && p[4] == 2 && p[5] == 2) || (p[6] == 2 && p[7] == 2 && p[8] == 2) || (p[0] == 2 && p[3] == 2 && p[6] == 2) || (p[1] == 2 && p[4] == 2 && p[7] == 2) || (p[2] == 2 && p[5] == 2 && p[8] == 2) || (p[0] == 2 && p[4] == 2 && p[8] == 2) || (p[2] == 2 && p[4] == 2 && p[6] == 2)) {
             vitoria = 2
+            let vitoriasO = localStorage.getItem("pontuacaoO")
             vitoriasO++
+            localStorage.setItem("pontuacaoO",vitoriasO)
             placarO.textContent = vitoriasO.toString()
             placarO.classList.remove('white')
             placarO.classList.add('yellow')
@@ -165,18 +180,19 @@ function jogar(casaJogada) {
     if (p[casaJogada] == 0 && jogoAtivo) {
         if (turn == 1) {
             p[casaJogada] = 1
-            colorirVez(2)
             casa[casaJogada].classList.add('xis')
+            colorirVez(2)
             turn=2
         } else
             if (turn == 2) {
                 p[casaJogada] = 2
-                colorirVez(1)
                 casa[casaJogada].classList.add('circulo')
+                colorirVez(1)
                 turn=1
             }
         casa[casaJogada].classList.add('aparecer')
         casa[casaJogada].classList.add('selecionado')
+        casa[casaJogada].classList.add('jogado')
         ValidarVitoria()
     } 
     // else if (!jogoAtivo) {
@@ -189,3 +205,8 @@ function jogar(casaJogada) {
 
 //Iniciando o jogo
 reset()
+
+
+// Programa feito por Rubens Luiz Lobo de Almeida
+// Github: https://github.com/rubensl07/TicTacToe
+// Atualização feita em: 23/12/2023

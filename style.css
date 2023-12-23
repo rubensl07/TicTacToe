@@ -11,6 +11,26 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+/*REMOVER O DESTAQUE AZUL AO PASSAR O MOUSE (EFEITO HIGHLIGHT)*/
+
+/* Para navegadores modernos */
+::selection {
+    background-color: transparent
+}
+
+/* Para navegadores Firefox */
+::-moz-selection {
+    background-color: transparent
+}
+*{
+    user-select: none;
+}
+img{
+    pointer-events: none;
+}
+/**/
+
 body{
     background-color: var(--background);
     display: flex;
@@ -89,7 +109,7 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    /* cursor: pointer; */
+    cursor: pointer;
 }
 .circulo{
     background-image: url(./icones/circulo.png);
@@ -126,11 +146,12 @@ body{
     width: 40%;
     background-color: rgb(255, 255, 0);
     font-family: 'Courier New', Courier, monospace;
-    /* cursor: pointer; */
 }
 
 
-
+.jogado{
+    cursor: default;
+}
 
 
 .yellow{
