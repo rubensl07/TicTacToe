@@ -1,4 +1,8 @@
 'use strict'
+//Tempo de cooldown do botão em segundos
+let tempoUR = 1.5
+console.log("Ao pressionar o botão RESET por "+tempoUR+" segundos, ele zera os placares do jogo.")
+
 function zerarPlacares(){
     localStorage.setItem("pontuacaoX", 0)
     localStorage.setItem("pontuacaoO", 0)
@@ -54,15 +58,46 @@ for (contador = 0; contador < 9; contador++) {
     })(contador))
 }
 //Botão reset
-botaoReset.addEventListener('click', pressionarBotao)
+// botaoReset.addEventListener('click', pressionarBotao)
 //Botão Ultra Reset
-ultraReset.addEventListener('click', function () {
+
+let timeout;
+let segurado = false;
+let segundos = tempoUR * 1000
+
+botaoReset.addEventListener('touchstart', () => {
+    timeout = setTimeout(function() {
+        segurado = true;
+        ultraResetSeg()
+    }, segundos);
+});
+
+botaoReset.addEventListener('touchend', () => {
+    clearTimeout(timeout);
+    segurado = false;
+    if (!segurado) {
+        pressionarBotao()
+    } 
+});
+
+ultraReset.addEventListener('click', ultraResetPress);
+
+function ultraResetSeg(){
+    const confirmacao = window.confirm("Deseja zerar os placares?");
+    if (confirmacao) {
+        ultraResetFunct()
+    }
+}
+function ultraResetPress(){
     const confirmacao = window.confirm("Pressionar esse botão apagará os placares atuais e resetará o jogo.\nEstá certo que deseja continuar?");
     if (confirmacao) {
-        zerarPlacares()
-        location.reload()
+        ultraResetFunct()
     }
-});
+}
+function ultraResetFunct(){
+    zerarPlacares()
+    location.reload()
+}
 
 //Funções
 function reset() {

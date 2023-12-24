@@ -87,6 +87,7 @@ body{
     border-radius: 16rem;
     background-color: rgb(71, 71, 71);
     color: aliceblue;
+    text-align: center;
 }
 /* .icone{
     transition: 2s;
@@ -131,7 +132,7 @@ body{
     flex-direction: column;
     align-items: center;
 }
-#reset{
+.reset{
     cursor: pointer;
     height: 100%; 
     width: 100%;
@@ -168,4 +169,69 @@ body{
 .vermelho{
     background-color: rgb(255, 43, 43);
     transition: var(--transicaoCurta);
+}
+
+
+@media (max-width: 768px) {
+    body{
+        padding-top: 20%;
+        padding-bottom: 10%;
+        width: 100vw;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .centro{
+        height: 35%;
+        width: 50%;
+    }
+.tabuleiro{
+    height: fit-content;
+    width: fit-content;
+}
+.casa{
+    height: 100px;
+    width: 100px;
+}
+.pontuacao{
+    padding-left: 4%;
+    padding-right: 4%;
+    position: absolute;
+    width: 90%;
+    justify-content: space-around;
+}
+.pontuacao>p{
+    font-size: 50%;
+}
+.pontuacao>img{
+    height: 60%;
+}
+.botoes{
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    height: fit-content;
+}
+.botoes>button{
+    width: fit-content;
+    padding: 7%;
+    text-transform: uppercase;
+}
+.botoes>.ur{
+    display: none;
+}
+.lado{
+    margin: 0;
+    width: 100%;
+    height: 10%;
+    flex-direction: row-reverse;
+    gap: 5%;
+}
+.lado>img{
+    height: 80%;
+}
+.lado>p{
+    font-size: 360%;
+}
+
 }
