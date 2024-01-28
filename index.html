@@ -1,46 +1,95 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./icones/icon2.png">
-    <script src="./app.js" defer></script>
+    <link rel="icon" href="../icones/icon2.png">
     <title>Tic Tac Toe</title>
 </head>
-
 <body>
-    <div class="lado esquerdo" id="esquerdo">
-        <p class="placar" id="placarX"></p>
-        <img src="./icones/xis.png" height="20%">
-    </div>
-    <div class="centro">
-        <div class="pontuacao vermelho" id="pontuacao">
-            <img src="" class="icone" height="70%" id="icone1">
-            <p id="vez"></p>
-            <img src="" class="icone" height="70%" id="icone2">
-        </div>
-        <div class="tabuleiro" id="tabuleiro">
-            <div class="casa" id="c1"></div>
-            <div class="casa" id="c2"></div>
-            <div class="casa" id="c3"></div>
-            <div class="casa" id="c4"></div>
-            <div class="casa" id="c5"></div>
-            <div class="casa" id="c6"></div>
-            <div class="casa" id="c7"></div>
-            <div class="casa" id="c8"></div>
-            <div class="casa" id="c9"></div>
-        </div>
-        <div class="botoes">
-            <button id="reset" class="reset">Resetar</button>
-            <button id="ur" class="ur">UltraReset</button>
-        </div>
-    </div>
-    <div class="lado direito" id="direito">
-        <p class="placar" id="placarO"></p>
-        <img src="./icones/circulo.png" height="20%">
-    </div>
-</body>
+    <header>
+        <img src="./icones/icon2.png" alt="">
 
+    </header>
+    <main>
+        <div class="botao" id="botaoLocal">
+            Local
+        </div>
+        <div class="botao" id="botaoOnline">
+            Online
+        </div>
+    </main>
+
+</body>
 </html>
+<script>
+    const local = document.getElementById('botaoLocal')
+    local.addEventListener('click',irParaLocal)
+    function irParaLocal(){
+        window.location.href = "./2player/index.html"
+    }
+    const online = document.getElementById('botaoOnline')
+    online.addEventListener('click', funcao=> {
+        alert("Modo em produção")
+    })
+    online.addEventListener('mouseover',bloquearOnline)
+    online.addEventListener('mouseleave',desbloquearOnline)
+    function bloquearOnline(){
+        online.classList.add('bloqueado')
+    }
+    function desbloquearOnline(){
+        online.classList.remove('bloqueado')
+    }
+</script>
+
+<style>
+    *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: gray;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header{
+    display: flex;
+    justify-content: center;
+}
+header img{
+    width: 25%;
+    margin-top: 5%;
+    background-color: black;
+    padding: 1%;
+    border-radius: 40px;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+.botao{
+    cursor: pointer;
+    background-color: orange;
+    height: 20%;
+    width: 50vw;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+    font-size: 400%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.bloqueado{
+    background-color: rgb(161, 105, 0);
+    color:rgb(54, 54, 54);
+    cursor: not-allowed;
+}
+</style>
